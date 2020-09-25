@@ -1,0 +1,88 @@
+/* -------------------------------------------- */
+/*  
+    Hamburger menu icon
+    Author: Tim Jensen
+    Date: Nov 2016
+
+    Based on icon animation design by Jesse Couch
+    https://codepen.io/designcouch/pen/Atyop
+
+
+    HTML:
+
+    <a [icon placeholder element]>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+
+/* -------------------------------------------- */
+
+/* Vars */
+$iconWidth: 2em;
+$iconHeight: 2em;
+$spanWidth: 1.1em;
+$spanHeight: 0.25em;
+$spanOffset: ($iconHeight - ($spanHeight * 4.5)) / 2;
+$black: #000;
+
+/* Icon */
+%hb-icon {
+  width: $iconWidth;
+  height: $iconHeight;
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform .5s ease-in-out;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    left: ($iconWidth - $spanWidth) / 2;
+    height: $spanHeight;
+    width: $spanWidth;
+    background: $black;
+    border-radius: $spanHeight;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: transform .25s ease-in-out, width .25s ease-in-out, left .25s ease-in-out;
+
+    &:nth-child(1) {
+    top: $spanOffset;
+    }
+
+    &:nth-child(2),&:nth-child(3) {
+      top: $spanOffset + ($spanHeight * 1.75);
+    }
+
+    &:nth-child(4) {
+      top: $spanOffset + ($spanHeight * 3.5);
+    }
+  }
+  /* Icon Open */
+  &.open {
+    span {
+
+      &:nth-child(1), &:nth-child(4) {
+        top: $spanOffset + ($spanHeight * 1.75); //animate to center
+        width: 0%;
+        left: 50%;
+      }
+
+      &:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }  
+    }  
+  }
+}

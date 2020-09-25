@@ -1,0 +1,38 @@
+html,
+body {
+    height: 100%;
+}
+
+* {
+    font-size: 16px;
+}
+
+*+blockquote,
+*+p,
+*+figure {
+    padding-top: 1em;
+}
+
+blockquote {
+    p {
+        font-size: 1.5em;
+    }
+}
+
+sup {
+    font-size: 0.5em;
+}
+
+sub {
+    font-size: 0.4em;
+}
+
+
+header {
+
+}
+
+h1,h2,h3,h4,h5,h6,p {
+	max-width: $optimal-line-length;
+}
+

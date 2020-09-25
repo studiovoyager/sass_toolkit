@@ -1,0 +1,62 @@
+/* COMPONENTS */
+
+.c-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 1em;
+	@include mappy-query(portrait-tablet) {
+		margin: 4em 5em;  
+	}
+}
+
+.c-globalnav {
+	ul {
+		display: flex;
+		flex-direction: column;
+	}
+	a {
+		display: inline-block;
+		font-size: 0.9em;
+		padding: 0.5em 0;
+		text-decoration: none;
+		text-transform: uppercase;
+		color: color(link-color);
+		@include ff(header);
+	}
+	@include mappy-query(portrait-tablet) {
+		ul {
+			flex-direction: row;
+		}
+		a {
+			padding: 0.5em 1em;
+		}
+	}
+}
+
+.c-logo {
+	width: 70vw;
+	@include mappy-query(portrait-tablet) {
+		width: 8em;
+	}
+} 
+
+.c-section {
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.c-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2em;
+	padding: 1em 0;
+	border-top: 1px solid color(light-grey);
+	* + p {
+		margin: 0;
+		padding: 0;
+	}
+}

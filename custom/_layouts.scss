@@ -1,0 +1,29 @@
+/* LAYOUTS */
+
+.l-header { 
+	@include mappy-query(portrait-tablet) {
+		flex-direction: row-reverse;
+		justify-content: space-between;
+	}
+}
+
+.l-globalnav {
+	align-self: flex-end;
+	@include mappy-query(portrait-tablet) {
+		align-self: center;
+	}
+}
+
+.l-section {
+	@include mappy-query(portrait-tablet) {
+		
+	}
+}
+
+.l-footer { 
+	@include mappy-query(portrait-tablet) {
+		flex-direction: row;
+		justify-content: space-between;
+		margin: 3em 2em;
+	}
+}

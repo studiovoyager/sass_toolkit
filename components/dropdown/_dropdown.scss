@@ -1,0 +1,153 @@
+//Just the bits I need from https://github.com/csakiistvan/dropdown
+//Customised with mobile version
+nav.dd {
+    background-color: color(dark-grey);
+    padding: 1.4rem 1.4rem 0 1.4rem;
+    ul {
+        list-style: none;
+        position: relative;
+        width: 100%;
+        text-transform: uppercase;
+        /*display: none;*/
+        a {
+            color: color(off-white);
+            transition: color 0.2s ease-out;
+            &:focus {
+                color: color(cadad-blue);
+            }
+            &:hover {
+                color: color(cadad-blue);
+            }
+        }
+        a[href="#"] {
+            &:focus {
+                color: color(off-white);
+            }
+        }
+        a + ul.sub-menu {
+            padding: 0.5em 0 0 0.5em;
+            li:last-child {
+                padding-bottom: 0.5em;
+            }
+            /*color: color(off-white);*/
+        }
+        &:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        li {
+            float: left;
+            width: 100%;
+            a {
+                width: 100%;
+                /*&:focus ~ ul {
+                     display: block;
+                }*/
+            }
+            &:hover > ul {
+                display: block;
+            }
+        }
+        /* Second Level Menu - hide */
+        ul {
+            /*display: none;*/
+            display: block;
+            text-transform: initial;
+            /* All items open for this site */
+        }
+    }
+    @include mappy-query(desktop) {
+        background-color: initial;
+        padding: 0;
+        font-size: 0.75em;
+        ul {
+            display: flex;
+            justify-content: space-around;
+            width: auto;
+            li {
+                width: auto;
+                &.current-menu-parent,
+                &.current-menu-item {
+                    > a {
+                        &:hover {
+                            color: color(dark-grey);
+                        }
+                    }
+                }
+            }
+            a {
+                color: color(dark-grey);
+                &:focus {
+                    color: color(cadad-blue);
+                }
+            }
+            a[href="#"] {
+                position: relative;
+                &:hover, &:focus {
+                    color: color(cadad-blue);
+                }
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 40%;
+                    right: -1em;
+                    @include downArrow(0.3em, rgba(color(light-grey),0.5));
+                }
+            }
+            a + ul.sub-menu {
+                padding: 1em;
+            }
+            /* second level items */
+            ul,
+            .submenu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                padding: 1em;
+                background-color: color(cadad-blue);
+                box-shadow: 0.1em 0 0.33em lighten(color(dark-grey), 10%);
+                font-weight: 400;
+                z-index: 100;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: -0.49em;
+                    left: 1em;
+                    @include upArrow(0.5em, color(cadad-blue));
+                }
+                li {
+                    float: none;
+                    position: relative;
+                    width: auto;
+                }
+                ul {
+                    position: absolute;
+                    left: 100%;
+                    top: 0;
+                }
+                a {
+                    color: color(off-white);
+                    &:hover {
+                        color: color(white);
+                    }
+                }
+            }
+        }
+        > ul {
+            > li {
+                &.current-menu-parent,
+                &.current-menu-item {
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 2px;
+                        background-color: lighten(color(light-grey), 10%);
+                        background-color: color(light-grey);
+                    }
+                }
+            }
+        }
+    }
+}

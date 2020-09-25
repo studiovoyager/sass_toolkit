@@ -1,0 +1,13 @@
+/*
+	Material Design Init
+*/
+
+.md-surface {
+  @include mdc-ripple-base;
+  @include mdc-ripple-bg((pseudo: "::before"));
+  @include mdc-ripple-fg((pseudo: "::after"));
+  // ...
+
+  /* "Bound" the ripple, preventing the pseudo-elements from bleeding out of the box. */
+  overflow: hidden;
+}
